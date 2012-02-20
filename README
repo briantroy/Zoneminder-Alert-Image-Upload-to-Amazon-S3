@@ -1,0 +1,57 @@
+
+The Zoneminder Alert Image Upload to Amazon S3 project was created to solve two simple problems:
+
+1) Off site storage of alarmed images (those in which Zoneminder has detected motion) is a must-have
+if your IP camera security system is to be of any real use in the event your home/business is
+broken in to.
+
+2) The upload must be FAST - so if (when) the intruder takes the PC running zoneminder (or the external
+drive holding the images) some set of alarmed images will have already have been uploaded.
+
+Essentially, I didn't want to spend time/energy figuruing out how to hid/secure the Zoneminder hardware and
+opted instead to ensure any alarmed images were uploaded to a secure location.
+
+About Zoneminder:
+
+Zoneminder (http://www.zoneminder.com/) is a GPL licensed video camera security and surveillance solution.
+It allows you to view, record and distribute video from any video surveillance cameras you may have in your
+home/business.
+
+Installation:
+
+This document assumes you have a pre-existing Zoneminder installation. If you need help getting Zoneminder
+working please see http://www.zoneminder.com
+
+There are 3 basic steps:
+
+1) Modify your Zoneminder database.
+2) Configure the Zoneminder s3 Uploader.
+3) Run the Uploader.
+
+Modify the Zoneminder Database:
+
+The included script zms3db.sql should be run on your Zoneminder database. It will create a table the Zoneminder
+s3 Uploader will use to track which alarm images have been uploaded.
+
+Configure the Zoneminder s3 Uploader:
+
+There are two files which require some configuration. The core Zoneminder s3 Uploader configuration is found in
+the zms3Config.js file. This file contains the information need to connect to your Zoneminder MySQL database,
+how many images to process at once, logfile paths/names, etc.
+
+Optionally, you can also store your logs and data about each file uploaded in a MongoDB database.
+
+Please see the zms3Config.js file for specifics.
+
+Additionally, your Amazon S3 credentials are stored in the zmAlarmImage/s3-client.js file. You'll need to add your
+Amazon S3 Account key and secret in this file. By default it will use the security-alarms bucket - which can be
+changed as needed.
+
+Run The Uploader:
+
+The uploader should be run as a daemon (it runs continuously).
+
+node /path/to/your/install/upload-zoneminder-alarm-frames.js >> /dev/null &
+
+
+The log files generated will provide diagnostic information as needed.
