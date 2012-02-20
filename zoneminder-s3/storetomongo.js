@@ -25,8 +25,6 @@ var storeToMongo = function() {
     var col;
 
     var doSave = function(row, fn) {
-        // If not configured explicitly, use defaults..
-        if(!db) this.createMDB(MHOST, MPORT, MDB, COLLECTION_NAME, MUSR, MPWD, fn);
 
         col.insert(row, {safe:true}, function (err, records){
             if(err) fn(err);
@@ -37,6 +35,9 @@ var storeToMongo = function() {
     }
 
     this.storeRow = function(row, fn) {
+        var that = this;
+        // If not configured explicitly, use defaults..
+        if(!db) this.createMDB(MHOST, MPORT, MDB, COLLECTION_NAME, MUSR, MPWD, fn);
         doSave(row, fn);
     }
 
