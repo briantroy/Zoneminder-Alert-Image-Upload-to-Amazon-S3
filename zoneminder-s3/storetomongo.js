@@ -38,7 +38,7 @@ var storeToMongo = function() {
     this.storeRow = function(row, fn) {
         var that = this;
         // If not configured explicitly, use defaults..
-        if(!db) this.createMDB(MHOST, MPORT, MDB, COLLECTION_NAME, MUSR, MPWD, MDBOPTIONS, fn);
+        // if(!db) this.createMDB(MHOST, MPORT, MDB, COLLECTION_NAME, MUSR, MPWD, MDBOPTIONS, fn);
         doSave(row, fn);
     }
 
@@ -62,7 +62,6 @@ var storeToMongo = function() {
         db.open(function (error, db) {
             if(error) {
                 error.inSrc = "storetomongo";
-                db.close();
                 fn(error);
             }
             db.slaveOk = false;
@@ -70,7 +69,6 @@ var storeToMongo = function() {
                 if(err) {
                     console.log("Auth failed with: " + MUSR + ":" + MPWD);
                     err.intSrc = "storetomongo";
-                    db.close();
                     fn(err);
                 }
                 col = new  mongodb.Collection(db, COLLECTION_NAME);
