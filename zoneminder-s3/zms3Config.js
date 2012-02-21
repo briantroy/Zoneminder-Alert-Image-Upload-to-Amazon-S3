@@ -35,7 +35,12 @@ var zms3Config = function() {
         db: "zmalarms",
         username: "zms3usr",
         password: "0okmju7",
-        collection: 'alarm-files'
+        collection: 'alarm-files',
+        options: {
+            auto_reconnect: true,
+            poolSize: 4,
+            socketOptions: { keepAlive: 100 }
+        }
     };
 
     /*

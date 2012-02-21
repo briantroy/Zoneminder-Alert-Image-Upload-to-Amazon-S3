@@ -36,7 +36,8 @@ if(typeof(zmConfig.mongoStoreConfig) != 'undefined') {
 
     mDbs.createMDB(zmConfig.mongoStoreConfig.host, zmConfig.mongoStoreConfig.port,
             zmConfig.mongoStoreConfig.db, zmConfig.mongoStoreConfig.collection,
-            zmConfig.mongoStoreConfig.username, zmConfig.mongoStoreConfig.password, function(err) {
+            zmConfig.mongoStoreConfig.username, zmConfig.mongoStoreConfig.password,
+            zmConfig.mongoStoreConfig.options, function(err) {
 
         tLog = require('./tLogger').tLogger();
         tLog.createLogger(zmConfig.LOGFILEBASE, true, zmConfig.mongoLogConfig);

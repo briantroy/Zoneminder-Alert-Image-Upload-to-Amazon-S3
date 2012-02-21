@@ -16,6 +16,7 @@ var storeToMongo = function() {
     var MUSR = "";
     var MPWD = "";
     var COLLECTION_NAME = 'default';
+    var MDBOPTIONS = {};
 
     var mongodb     = require('mongodb');
     var Db          = mongodb.Db;
@@ -37,7 +38,7 @@ var storeToMongo = function() {
     this.storeRow = function(row, fn) {
         var that = this;
         // If not configured explicitly, use defaults..
-        if(!db) this.createMDB(MHOST, MPORT, MDB, COLLECTION_NAME, MUSR, MPWD, fn);
+        if(!db) this.createMDB(MHOST, MPORT, MDB, COLLECTION_NAME, MUSR, MPWD, MDBOPTIONS, fn);
         doSave(row, fn);
     }
 
@@ -45,16 +46,16 @@ var storeToMongo = function() {
         return col;
     }
 
-    this.createMDB = function(host, port, db, collection, user, pwd, fn) {
+    this.createMDB = function(host, port, db, collection, user, pwd, opts, fn) {
         MHOST = host;
         MPORT = port;
         MDB = db;
         COLLECTION_NAME = collection;
         MUSR = user;
         MPWD = pwd;
-
+        MDBOPTIONS = opts;
         // set the new db object for SuperviseDB
-        db = new Db(MDB, new Server(MHOST, MPORT , {}), {
+        db = new Db(MDB, new Server(MHOST, MPORT, MDBOPTIONS), {
             native_parser : false
         });
 
