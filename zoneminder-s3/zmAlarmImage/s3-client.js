@@ -11,9 +11,9 @@ var s3Client = function() {
     var knox = require("../node_modules/knox");
     var fs = require('fs');
     this.kclient = knox.createClient({
-        key: 'mykey'
-      , secret: 'mysecret'
-      , bucket: 'security-alarms'
+        key: '1QXAHK4F4BTZ495GQ3R2'
+        , secret: 'CxNWwovKj4LBgvpN+/FZ7cwCYtEOEDY6PKbWioNz'
+        , bucket: 'security-alarms'
     });
 
     return this;

@@ -48,13 +48,13 @@ var zms3Config = function() {
      */
     this.MAXRECS = 400;
     /* Database host (mysql) - zoneminder DB */
-    this.DBHOST = "my.db.host.com";
+    this.DBHOST = "royhomepc02.santan.brianandkelly.ws";
     /* Database user name, must have select on zoneminder tables */
-    this.DBUSR = "mydbuser";
+    this.DBUSR = "brian.roy";
     /* Database user's password */
-    this.DBPWD = "mydbpassword";
+    this.DBPWD = "Is@b3l10";
     /* Database name for zoneminder */
-    this.DBNAME = "my_zoneminder_db";
+    this.DBNAME = "zm";
     /* Base path where your zoneminder events are stored. */
     this.IMGBASEPATH = "/u01/zoneminder/events";
     /* Max concurrent uploads... these will be executed non-blocking
