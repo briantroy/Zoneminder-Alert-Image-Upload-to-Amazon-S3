@@ -47,7 +47,8 @@ var tLogger = function() {
 
         lLog = winston.loggers.get('logLogger');
         eLog = winston.loggers.get('errLogger');
-        // eLog.handleExceptions();
+        eLog.handleExceptions();
+        eLog.exitOnError = false;
 
         if(! consoleLog) {
             lLog.remove(winston.transports.Console);
