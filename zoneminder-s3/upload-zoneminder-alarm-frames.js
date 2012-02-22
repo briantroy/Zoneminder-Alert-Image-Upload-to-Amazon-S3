@@ -40,7 +40,7 @@ if(typeof(zmConfig.mongoStoreConfig) != 'undefined') {
             zmConfig.mongoStoreConfig.options, function(err) {
 
         tLog = require('./tLogger').tLogger();
-        tLog.createLogger(zmConfig.LOGFILEBASE, true, zmConfig.mongoLogConfig);
+        tLog.createLogger(zmConfig.LOGFILEBASE, zmConfig.CONSOLELOGGING, zmConfig.mongoLogConfig);
 
         if(err) {
             tLog.writeErrMsg(err, "error");
