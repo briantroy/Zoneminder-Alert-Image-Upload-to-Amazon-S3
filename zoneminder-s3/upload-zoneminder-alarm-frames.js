@@ -52,7 +52,7 @@ if(typeof(zmConfig.mongoStoreConfig) != 'undefined') {
     });
 } else {
     tLog = require('./tLogger').tLogger();
-    tLog.createLogger("zmUpload", true, zmConfig.mongoLogConfig);
+    tLog.createLogger(zmConfig.LOGFILEBASE, zmConfig.CONSOLELOGGING, zmConfig.mongoLogConfig);
 
     if(err) {
         tLog.writeErrMsg(err, "error");
