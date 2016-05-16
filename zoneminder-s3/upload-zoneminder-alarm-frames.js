@@ -54,11 +54,6 @@ if(typeof(zmConfig.mongoStoreConfig) != 'undefined') {
     tLog = require('./tLogger').tLogger();
     tLog.createLogger(zmConfig.LOGFILEBASE, zmConfig.CONSOLELOGGING, zmConfig.mongoLogConfig);
 
-    if(err) {
-        tLog.writeErrMsg(err, "error");
-        process.exit(1);
-    }
-
     console.log("Logger created...");
     restartProcessing();
 }
