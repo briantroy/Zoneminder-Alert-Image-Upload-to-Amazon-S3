@@ -50,8 +50,8 @@ changed as needed.
 
 Run The Uploader:
 
-Install the required Node.js pacages by running
-npm install
+Install the required Node.js packages by running
+npm update
 
 The uploader should be run as a daemon (it runs continuously).
 
