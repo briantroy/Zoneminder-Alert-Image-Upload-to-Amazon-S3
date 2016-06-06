@@ -26,7 +26,7 @@ There are 3 basic steps:
 
 1) Modify your Zoneminder database.
 2) Configure the Zoneminder s3 Uploader.
-3) Run the Uploader.
+3) Install and run the Uploader.
 
 Modify the Zoneminder Database:
 
@@ -36,7 +36,8 @@ s3 Uploader will use to track which alarm images have been uploaded.
 Configure the Zoneminder s3 Uploader:
 
 There are two files which require some configuration. The core Zoneminder s3 Uploader configuration is found in
-the zms3Config.js file. This file contains the information need to connect to your Zoneminder MySQL database,
+the zms3Config.example.js file. Make a copy of this file and name it zms3Config.js.
+This file contains the information need to connect to your Zoneminder MySQL database,
 how many images to process at once, logfile paths/names, etc.
 
 Optionally, you can also store your logs and data about each file uploaded in a MongoDB database.
@@ -48,6 +49,9 @@ Amazon S3 Account key and secret in this file. By default it will use the securi
 changed as needed.
 
 Run The Uploader:
+
+Install the required Node.js packages by running
+npm update
 
 The uploader should be run as a daemon (it runs continuously).
 

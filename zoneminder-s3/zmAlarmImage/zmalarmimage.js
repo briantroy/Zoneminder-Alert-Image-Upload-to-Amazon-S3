@@ -29,8 +29,8 @@ var zmAlarmImage = function () {
         if (tSec.length == 1) tSec = "0" + tSec;
 
         frameId = String(frameId);
-        if (frameId.length == 1) frameId = "00" + frameId;
-        if (frameId.length == 2) frameId = "0" + frameId;
+        if (frameId.length == 1) frameId = "0000" + frameId;
+        if (frameId.length == 2) frameId = "000" + frameId;
 
         return imgData.image_base_path + "/" + monitorName +
             "/" + tYear + "/" + tMonth +

@@ -4,10 +4,11 @@
   "version": "0.1.0",
   "author": "Brian roy",
   "dependencies": {
-    "mysql": "~0.9.5",
-    "memcached": "0.0.7",
     "cassandra": "~0.1.0",
     "knox": "~0.0.9",
+    "memcached": "0.0.7",
+    "mysql": "~0.9.5",
+    "winston": "^2.2.0",
     "zmalarmimage": "0.0.1"
   },
   "devDependencies": {}
